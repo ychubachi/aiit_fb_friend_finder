@@ -1,9 +1,11 @@
+FACEBOOK_SCOPE = 'friends_education_history, friends_work_history'
+
 class OauthController < ApplicationController
   def new
     puts 'GET /oauth/new'
     session[:at] = nil
     redirect_to authenticator
-      .authorize_url(:scope => 'publish_stream', :display => 'page')
+      .authorize_url(:scope => FACEBOOK_SCOPE, :display => 'page')
   end
 
   def show

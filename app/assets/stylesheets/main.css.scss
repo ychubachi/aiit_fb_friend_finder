@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-size: 90%;
+    font-family: "Calibri", "Meiryo", "Arial", "Verdana", "Geneva", "Helvetica", "sans-serif", "MS UI Gothic", "ＭＳ Ｐゴシック"; 
+    width: 520px;
+    text-align: left;
+    line-height: 22px;
+
+    h1 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 120%;
+	text-align: center;
+    }
+
+    h2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 100%;
+	text-align: center;
+    }
+    
+    em {
+	color: red;
+	font-style: normal;
+    }
+
+    blockquote {
+	margin: 10px;
+	margin-button: 20px;
+	padding: 5px;
+	background: #fffff6;
+	border: 1px solid #999999;
+	p {
+	    padding: 0px 0px;
+	    margin: 5px;
+	}
+
+    }
+
+    .picture {
+	a {
+	    float: left;
+            text-decoration: none;
+	    display: block;
+	}
+    }
+    .clear {
+	clear: both;
+    }
+}
