@@ -40,10 +40,10 @@ group :test do
 end
 
 gem 'thin'
-gem 'mogli', :git => 'git@github.com:ychubachi/mogli.git'
+gem 'mogli'
 
 # http://stackoverflow.com/questions/8717198/foreman-only-shows-line-with-started-wit-pid-and-nothing-else
-gem 'foreman', '0.27.0'
+gem 'foreman'
 
 gem 'haml'
 gem 'spec'
