@@ -1,0 +1,22 @@
+class OauthController < ApplicationController
+  def new
+    puts 'GET /oauth/new'
+    session[:at] = nil
+    redirect_to authenticator
+      .authorize_url(:scope => 'publish_stream', :display => 'page')
+  end
+
+  def show
+    puts 'GET /oauth'
+    mogli_client = Mogli::Client
+      .create_from_code_and_authenticator(params[:code],authenticator)
+    session[:at] = mogli_client.access_token
+    redirect_to "/"
+  end
+
+  def authenticator
+    @authenticator ||= Mogli::Authenticator.new(ENV["FACEBOOK_APP_ID"], 
+                                         ENV["FACEBOOK_SECRET"], 
+                                         oauth_url)
+  end
+end

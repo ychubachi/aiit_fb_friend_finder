@@ -2,6 +2,12 @@ class HerokusController < ApplicationController
   # GET /herokus
   # GET /herokus.json
   def index
+    redirect_to new_oauth_path and return unless session[:at]
+
+    user = Mogli::User.find("me",Mogli::Client.new(session[:at]))
+    @user = user
+    @posts = user.posts
+
     @herokus = Heroku.all
 
     respond_to do |format|
