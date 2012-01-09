@@ -1,8 +1,9 @@
 HerokuRails::Application.routes.draw do
-  root :to => 'herokus#index'
   resources :herokus
 
+  root :to => 'finder#show'
   resource :oauth, :controller => "oauth"
+  resource :finder, :controller => "finder"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
