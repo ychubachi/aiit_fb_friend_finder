@@ -44,7 +44,7 @@ GEM
     eventmachine (0.12.10)
     execjs (1.2.13)
       multi_json (~> 1.0)
-    foreman (0.31.0)
+    foreman (0.27.0)
       term-ansicolor (~> 1.0.5)
       thor (>= 0.13.6)
     haml (3.1.4)
@@ -137,7 +137,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
-  foreman
+  foreman (= 0.27.0)
   haml
   jquery-rails
   mogli
