@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @heroku.name %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @heroku.year %>
+</p>
+
+
+<%= link_to 'Edit', edit_heroku_path(@heroku) %> |
+<%= link_to 'Back', herokus_path %>

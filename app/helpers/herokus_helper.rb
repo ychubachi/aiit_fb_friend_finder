@@ -1,0 +1,2 @@
+module HerokusHelper
+end
