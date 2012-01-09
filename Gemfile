@@ -40,3 +40,4 @@ group :test do
 end
 
 gem 'thin'
+gem 'mogli'
