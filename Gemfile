@@ -45,5 +45,7 @@ gem 'mogli'
 # http://stackoverflow.com/questions/8717198/foreman-only-shows-line-with-started-wit-pid-and-nothing-else
 gem 'foreman', '0.27.0'
 
-gem 'haml'
-gem 'spec'
+gem "haml-rails"
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+end
