@@ -3,7 +3,13 @@ HerokuRails::Application.routes.draw do
 
   root :to => 'finder#show'
   resource :oauth, :controller => "oauth"
-  resource :finder, :controller => "finder"
+  resource :finder, :controller => "finder" do
+    member do
+      get 'message'
+      post 'message'
+    end
+  end
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

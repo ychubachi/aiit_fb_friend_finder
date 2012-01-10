@@ -1,4 +1,7 @@
 / -*- coding: utf-8 -*-
+- content_for :app_id do
+  %meta{:content => @app.id, :property => "fb:app_id"}/
+
 %header
   / Facebook
   #fb-root

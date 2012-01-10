@@ -4,6 +4,7 @@ require 'signed_request'
 class FinderController < ApplicationController
   include SignedRequest
 
+  # for Facebook pagetab
   # GET /finder
   # GET /finder.json
   def show
@@ -11,10 +12,10 @@ class FinderController < ApplicationController
     if request['signed_request']
       sr = parse_signed_request(request, ENV["FACEBOOK_SECRET"])
       puts sr
-      # if sr && sr["page"] && sr["page"]["liked"] == false
-      #   redirect "https://#{request.env['HTTP_HOST']}/message"
-      #   return
-      # end
+      if sr["page"] && sr["page"]["liked"] == false
+        redirect "https://#{request.env['HTTP_HOST']}/finder/message"
+        return
+      end
     end
 
     # Authorication
@@ -112,10 +113,20 @@ class FinderController < ApplicationController
     end
     # puts @aiit_workers
     
-    
     respond_to do |format|
       format.html # show.html.haml
-      # format.json { render json: @heroku }
+    end
+  end
+
+  # for Facebook canvas
+  def create
+    puts 'POST /finder'
+    redirect_to finder_url
+  end
+
+  def message
+    respond_to do |format|
+      format.html # message.html.haml
     end
   end
   
