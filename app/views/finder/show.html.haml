@@ -18,10 +18,9 @@
   / iframe
   :javascript
     $(document).ready(function(){
-      $('iframe').load(function(){
-        if (typeof $(this).attr('height') == 'undefined') {
-          $(this).height(this.contentWindow.document.documentElement.scrollHeight+10);
-        }
+      $('iframe#autoResize').load(function(){
+        $(this).height(this.contentWindow.document.documentElement.scrollHeight);
+        $('.wait').remove()
       });
       $('iframe').triggerHandler('load');
     });
@@ -29,10 +28,11 @@
   %section
     = render 'status'
   %section
-    %iframe{:src => "#{education_finder_url}"}
+    %iframe#autoResize{:src => "#{education_finder_url}"}
+    %iframe#autoResize{:src => "#{work_finder_url}"}
   %section
-    %iframe{:src => "#{work_finder_url}"}
-  %section
+    %p.wait
+      %em ※読み込みに時間がかかります。少々お待ち下さい。
     #share-app
       %ul
         %li

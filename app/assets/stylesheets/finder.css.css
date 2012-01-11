@@ -27,9 +27,15 @@ body {
     body blockquote p {
       padding: 0px 0px;
       margin: 5px; }
+  body footer {
+    text-align: right; }
   body .picture a {
     float: left;
     text-decoration: none;
     display: block; }
   body .clear {
     clear: both; }
+  body iframe {
+    width: 100%;
+    height: 0px;
+    border-style: none; }
