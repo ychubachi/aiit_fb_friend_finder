@@ -15,10 +15,23 @@
       logging : true
     });
     FB.Canvas.setSize({ width: 520, height: 2000 })
+  / iframe
+  :javascript
+    $(document).ready(function(){
+      $('iframe').load(function(){
+        if (typeof $(this).attr('height') == 'undefined') {
+          $(this).height(this.contentWindow.document.documentElement.scrollHeight+10);
+        }
+      });
+      $('iframe').triggerHandler('load');
+    });
 %article
-  = render 'status'
-  %iframe{:src => "#{education_finder_url}", :width => '100%'}
-  %iframe{:src => "#{work_finder_url}", :width => '100%'}
+  %section
+    = render 'status'
+  %section
+    %iframe{:src => "#{education_finder_url}"}
+  %section
+    %iframe{:src => "#{work_finder_url}"}
   %section
     #share-app
       %ul
