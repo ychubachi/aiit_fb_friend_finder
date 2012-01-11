@@ -4,13 +4,13 @@
   %head#aiit-fb-friend-finder
     %meta{:charset => "utf-8"}
       %title AIIT Friend Finder
-      %link{:href => "/stylesheets/base.css", :media => "screen", :rel => "stylesheet"}
-      %link{:href => "/stylesheets/main.css", :media => "screen", :rel => "stylesheet"}
-      %meta{:content => "AIIT Friend Finder", :property => "og:title"}/
-      %meta{:content => "app", :property => "og:type"}/
-      %meta{:content => "http://aiit-fb-friend-finder.herokuapp.com/", :property => "og:url"}/
-      %meta{:content => "no image", :property => "og:image"}/
-      %meta{:content => "産業技術大学院大学（AIIT）に関係のある友達を検索するツールです", :property => "og:site_name"}/
+      = stylesheet_link_tag "application"
+      = javascript_include_tag "application"
+      %meta{:property => "og:title",      :content => "AIIT Friend Finder"}/
+      %meta{:property => "og:type",       :content => "app"}/
+      %meta{:property => "og:url",        :content => "http://aiit-fb-friend-finder.herokuapp.com/"}/
+      %meta{:property => "og:image",      :content => "no image"}/
+      %meta{:property => "og:site_name",  :content => "産業技術大学院大学（AIIT）に関係のある友達を検索するツールです"}/
       = yield :app_id
       :javascript
         function popup(pageURL, title,w,h) {
