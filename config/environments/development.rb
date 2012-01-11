@@ -27,4 +27,7 @@ HerokuRails::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Use a cache store in development
+  config.cache_store = :dalli_store
 end

@@ -1,0 +1,10 @@
+%section
+  %h1 職歴に「産業技術大学院大学/AIIT」がある方
+  .picture
+    - @aiit_workers.each do |id, user|
+      %a{:href => "#",
+         :title => "#{user.name}",
+         :onclick => "window.open('http://www.facebook.com/#{user.id}')"}
+        %img{:alt => "#{user.name}",
+             :src => "https://graph.facebook.com/#{user.id}/picture?type=square"}
+  .clear

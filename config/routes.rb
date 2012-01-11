@@ -1,12 +1,16 @@
 HerokuRails::Application.routes.draw do
-  resources :herokus
+  # resources :herokus
 
   root :to => 'finder#show'
   resource :oauth, :controller => "oauth"
   resource :finder, :controller => "finder" do
     member do
       get 'message'
-      post 'message'
+      post 'message'	# for Canvas
+      get 'education'
+      post 'education'	# for Canvas
+      get 'work'
+      post 'work'	# for Canvas
     end
   end
   

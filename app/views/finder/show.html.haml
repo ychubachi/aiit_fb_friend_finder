@@ -16,83 +16,9 @@
     });
     FB.Canvas.setSize({ width: 520, height: 2000 })
 %article
-  %section
-    %blockquote
-      - if @official || @unofficial
-        / 公式または非公式を登録しているAIIT関係者むけメッセージ
-        %h1
-          在校生/修了生/教職員の皆さんへ
-        %p
-          Facebookを活用した在校生/修了生/教職員とのコネクション構築を支援するため，
-          当アプリケーションではプロフィールに本学を登録して頂いているあなたの友人を
-          抽出して表示する機能を提供します。在校生/修了生/教職員の皆さんはAIITの
-          %a{:href => "http://www.facebook.com/aiit.ac.jp",
-             :target => "_blank"}
-            公式ページ
-          を学歴または職歴に追加してくださるようお願いいたします。
-        / ご本人の登録状況
-        %h2 #{@user.name}さんの登録状況
-        - if @official
-          / 公式ページを登録している方へ
-          %p
-            AIITの公式ページが登録されています。ご協力ありがとうございます。
-        - else
-          / 公式ページを登録していない方へ
-          %p
-            %em
-              学歴または職歴に非公式ページのみが登録され、公式ページが登録されていません。
-          %ul
-            %li
-              %a{:href => "http://www.facebook.com/#{@user.username}/info",
-                 :target => '_blank'}
-                こちら
-              からAIITの公式ページを追加してください。
-            %li
-              入力欄に「
-              %em 産業技術大学院大学 / AIIT: Advanced Institute of Industrial Technology
-              」をコピーしてペーストしていただければ確実に登録することができます。
-            %li 学歴の場合、入学/修了年度もご記入ください。
-      - else
-        / AIIT関係者ではない人むけメッセージ
-        %h1
-          %em あなたもAIITの仲間になりませんか？
-        %p
-          産業技術大学院大学のWebサイトは
-          %a{:href => 'http://aiit.ac.jp/', :target => '_blank'} こちら
-          です。
-          入学案内は
-          %a{:href => 'http://aiit.ac.jp/guide/index.html', :target => '_blank'} こちら
-          から。
-          %a{:href => 'http://pk.aiit.ac.jp/index.php?InfoTalk', :target => '_blank'} InfoTalk
-          はどなたでも参加できるイベントで、毎月第3金曜日に開催しています。
-        %p
-          ※この案内はあなたの学歴/職歴にAIITが登録されていないために表示されています。
-    %br
-  %section
-    %h1 学歴に「産業技術大学院大学/AIIT」がある方
-    - @aiit_friends.each do |year, friends|
-      - if year == ''
-        %h2 修了年度未記載
-      - else
-        %h2= "#{year}年度修了"
-      .picture
-        - friends.each do |id, user|
-          %a{:href => "#",
-             :title => "#{user.name}",
-             :onclick => "window.open('http://www.facebook.com/#{user.id}')"}
-            %img{:alt => "#{user.name}",
-                 :src => "https://graph.facebook.com/#{user.id}/picture?type=square"}
-      .clear
-  %section
-    %h1 職歴に「産業技術大学院大学/AIIT」がある方
-    .picture
-      - @aiit_workers.each do |id, user|
-        %a{:href => "#",
-           :title => "#{user.name}",
-           :onclick => "window.open('http://www.facebook.com/#{user.id}')"}
-          %img{:alt => "#{user.name}",
-               :src => "https://graph.facebook.com/#{user.id}/picture?type=square"}
-    .clear
+  = render 'status'
+  %iframe{:src => "#{education_finder_url}", :width => '100%'}
+  %iframe{:src => "#{work_finder_url}", :width => '100%'}
   %section
     #share-app
       %ul

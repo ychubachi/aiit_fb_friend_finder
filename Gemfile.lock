@@ -40,6 +40,7 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     daemons (1.1.5)
+    dalli (1.1.4)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     eventmachine (0.12.10)
@@ -155,6 +156,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
+  dalli
   foreman (= 0.27.0)
   haml-rails
   jquery-rails
