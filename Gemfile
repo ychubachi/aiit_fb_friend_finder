@@ -51,3 +51,5 @@ group :test, :development do
 end
 
 gem 'dalli'
+gem 'execjs'
+gem 'therubyracer'
